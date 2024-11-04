@@ -1,0 +1,91 @@
+/* Background and body styling */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: #fff;
+    margin: 0;
+}
+
+/* Title styling */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Game grid styling */
+#game {
+    display: grid;
+    grid-template-columns: repeat(3, 120px);
+    gap: 15px;
+}
+
+/* Cell styling */
+.cell {
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    background-color: #ffffff90;
+    border: 2px solid #333;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.cell:hover {
+    background-color: #ffffffc0;
+}
+
+/* Status and button styling */
+#status {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 1.5em;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+#restart {
+    margin-top: 15px;
+    padding: 10px 25px;
+    font-size: 1em;
+    border: none;
+    background-color: #ff6b6b;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+#restart:hover {
+    background-color: #ff5252;
+}
+
+/* Animation for input characters */
+.cell.x::after,
+.cell.o::after {
+    content: attr(data-player);
+    color: #333;
+    font-size: 2.5em;
+    animation: popIn 0.3s ease forwards;
+}
+
+/* Animation keyframes */
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
